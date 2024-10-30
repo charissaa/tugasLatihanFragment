@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -21,18 +21,29 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"
-        android:text="FRAGMENT 3"
         app:layout_constraintStart_toStartOf="@id/bg"
         app:layout_constraintTop_toTopOf="@id/bg"/>
 
     <TextView
         android:id="@+id/number"
         android:layout_width="match_parent"
-        android:layout_height="550dp"
+        android:layout_height="wrap_content"
         android:textSize="300sp"
         android:gravity="center"
+        android:text="99"
         app:layout_constraintTop_toBottomOf="@id/tv1"
         app:layout_constraintStart_toStartOf="@id/bg"
-        app:layout_constraintEnd_toEndOf="@id/bg"/>
+        app:layout_constraintEnd_toEndOf="@id/bg"
+        app:layout_constraintBottom_toBottomOf="@id/bg"/>
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/tv2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="FRAGMENT 3"
+        app:layout_constraintStart_toStartOf="@id/number"
+        app:layout_constraintEnd_toEndOf="@id/number"
+        app:layout_constraintTop_toTopOf="@id/number"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -45,7 +45,7 @@ class fragment1 : Fragment() {
         val _number = view.findViewById<TextView>(R.id.number)
 
         if(arguments != null) {
-            _number.text = arguments?.getString("DATA").toString()
+            _number.text = arguments?.getInt("DATA").toString()
         }
     }
 

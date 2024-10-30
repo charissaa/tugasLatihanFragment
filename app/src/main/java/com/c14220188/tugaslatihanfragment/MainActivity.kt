@@ -33,58 +33,63 @@ class MainActivity : AppCompatActivity() {
             .add(R.id.frameContainer, mfSatu, fragment1::class.java.simpleName)
             .commit()
 
-        var num = "99"
+        var num = 99
 
         //Button Hal 1 (-1)
         _btnHal1.setOnClickListener{
             val mBundle = Bundle()
-            if (num <= "0"){
-                num = "99"
-                mBundle.putString("DATA", num)
-            }else {
-                mBundle.putString("DATA", (num.toInt() - 1).toString())
+            if (num <= 0) {
+                num = 99
+                mBundle.putInt("DATA", num)
+            } else {
+                mBundle.putInt("DATA", --num)
             }
 
+            val mpage1 = fragment1()
+            mpage1.arguments = mBundle
 
-            val mpage1 = fragment1().apply {
-                arguments = mBundle.apply {
-                    putString("DATA")
-                }
-            }
-            mpage1.
-
-            mFragmentManager.beginTransaction().apply {
-                replace(R.id.frameContainer, mpage1, fragment1::class.java.simpleName)
-                commit()
-            }
+            mFragmentManager.beginTransaction()
+                .replace(R.id.frameContainer, mpage1, fragment1::class.java.simpleName)
+                .commit()
         }
 
         //Button Hal 2 (-2)
         _btnHal2.setOnClickListener{
             val mBundle = Bundle()
-            mBundle.putString("DATA", (num.toInt()-2).toString())
+            if (num <= 0) {
+                num = 99
+                mBundle.putInt("DATA", num)
+            } else {
+                num-=2
+                mBundle.putInt("DATA", num)
+            }
 
             val mpage2 = fragment2()
             mpage2.arguments = mBundle
 
-            mFragmentManager.beginTransaction().apply {
-                replace(R.id.frameContainer, mpage2, fragment2::class.java.simpleName)
-                commit()
-            }
+            mFragmentManager.beginTransaction()
+                .replace(R.id.frameContainer, mpage2, fragment2::class.java.simpleName)
+                .commit()
+
         }
 
         //Button Hal 3 (-3)
         _btnHal3.setOnClickListener{
             val mBundle = Bundle()
-            mBundle.putString("DATA", (num.toInt()-3).toString())
+            if (num <= 0) {
+                num = 99
+                mBundle.putInt("DATA", num)
+            } else {
+                num-=3
+                mBundle.putInt("DATA", num)
+            }
 
             val mpage3 = fragment3()
             mpage3.arguments = mBundle
 
-            mFragmentManager.beginTransaction().apply {
-                replace(R.id.frameContainer, mpage3, fragment2::class.java.simpleName)
-                commit()
-            }
+            mFragmentManager.beginTransaction()
+                .replace(R.id.frameContainer, mpage3, fragment2::class.java.simpleName)
+                .commit()
         }
     }
 }
